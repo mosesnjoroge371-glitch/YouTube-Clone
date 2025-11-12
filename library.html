@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - YouTube Clone</title>
+  <link rel="shortcut icon" href="./icons8-youtube-100.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="menu-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="logo"><a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"></a></div>
+    <div class="search-bar"><input type="text" placeholder="Search"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    <div class="icons"><i class="fa-solid fa-microphone"></i><i class="fa-solid fa-video"></i><i class="fa-solid fa-bell"></i><img src="./ae7d4159-a1eb-474e-81e6-08ab4d08f0bd.jpeg" class="avatar"></div>
+  </header>
+
+  <nav class="categories">
+    <button>All</button><button>Music</button><button>Mixes</button><button>Gaming</button><button>Podcasts</button><button>Live</button>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="trending.html"><i class="fa-solid fa-fire"></i> Trending</a></li>
+        <li><a href="subscriptions.html"><i class="fa-solid fa-folder-open"></i> Subscriptions</a></li>
+        <li><a href="shorts.html"><i class="fa-solid fa-bolt"></i> Shorts</a></li>
+        <li><a href="library.html" class="active"><i class="fa-solid fa-photo-film"></i> Library</a></li>
+        <li><a href="history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <h2>🎞️ Your Library</h2>
+      <p>Saved videos and playlists appear here.</p>
+    </main>
+  </div>
+
+  <footer class="footer"><a href="#"><i class="fa-regular fa-circle-question"></i> About</a><a href="#"><i class="fa-regular fa-envelope"></i> Contact</a></footer>
+  <script>document.getElementById("menu-btn").addEventListener("click",()=>document.getElementById("sidebar").classList.toggle("show"));</script>
+</body>
+</html>

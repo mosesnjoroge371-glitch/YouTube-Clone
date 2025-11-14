@@ -1,43 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library - YouTube Clone</title>
-  <link rel="shortcut icon" href="./icons8-youtube-100.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <header class="header">
-    <div class="menu-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
-    <div class="logo"><a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"></a></div>
-    <div class="search-bar"><input type="text" placeholder="Search"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <div class="icons"><i class="fa-solid fa-microphone"></i><i class="fa-solid fa-video"></i><i class="fa-solid fa-bell"></i><img src="./ae7d4159-a1eb-474e-81e6-08ab4d08f0bd.jpeg" class="avatar"></div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./icons8-youtube-100.png"
+      type="image/x-icon"
+    />
+    <title>YouTube Clone - Library</title>
 
-  <nav class="categories">
-    <button>All</button><button>Music</button><button>Mixes</button><button>Gaming</button><button>Podcasts</button><button>Live</button>
-  </nav>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    "
+    integrity="sha512-QWW4UH8XM4+tfrQSYGkLo6JZstbNG8nr/QJvaLMKcKJsl+1l5ohoxjZGQwIuesXlMoPucMnWpvKKm2CmkSFbw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <div class="container">
-    <aside class="sidebar" id="sidebar">
-      <ul>
-        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="trending.html"><i class="fa-solid fa-fire"></i> Trending</a></li>
-        <li><a href="subscriptions.html"><i class="fa-solid fa-folder-open"></i> Subscriptions</a></li>
-        <li><a href="shorts.html"><i class="fa-solid fa-bolt"></i> Shorts</a></li>
-        <li><a href="library.html" class="active"><i class="fa-solid fa-photo-film"></i> Library</a></li>
-        <li><a href="history.html"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-      </ul>
-    </aside>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-    <main class="main-content">
-      <h2>🎞️ Your Library</h2>
-      <p>Saved videos and playlists appear here.</p>
-    </main>
-  </div>
+  <body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-  <footer class="footer"><a href="#"><i class="fa-regular fa-circle-question"></i> About</a><a href="#"><i class="fa-regular fa-envelope"></i> Contact</a></footer>
-  <script>document.getElementById("menu-btn").addEventListener("click",()=>document.getElementById("sidebar").classList.toggle("show"));</script>
-</body>
+      <a href="index.html" class="logo" aria-label="YouTube Clone Home">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+          alt="YouTube Logo"
+        />
+      </a>
+
+      <form id="search-form" class="search-bar" role="search" action="#" onsubmit="return false;">
+        <input id="search-input" type="search" placeholder="Search" aria-label="Search videos" autocomplete="off" />
+        <button id="search-button" type="submit" aria-label="Submit search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <div id="search-suggestions" class="search-suggestions" aria-hidden="true"></div>
+      </form>
+
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Search with voice" data-target="voice.html">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+        <button class="icon-btn" aria-label="Create video" data-target="upload.html">
+          <i class="fa-solid fa-video"></i>
+        </button>
+        <button class="icon-btn" aria-label="Notifications" data-target="notifications.html">
+          <i class="fa-solid fa-bell"></i>
+        </button>
+        <button class="avatar-btn" aria-label="User account" data-target="profile.html">
+          <img
+            src="./ae7d4159-a1eb-474e-81e6-08ab4d08f0bd.jpeg"
+            alt="User Avatar"
+            class="avatar"
+          />
+        </button>
+      </div>
+    </header>
+
+    <!-- CATEGORY BAR -->
+    <nav class="categories" role="navigation" aria-label="Video categories">
+      <button
+        class="sidebar-toggle-mobile"
+        id="sidebar-toggle-mobile"
+        aria-label="Toggle sidebar"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="music">Music</button>
+      <button class="category-btn" data-category="mixes">Mixes</button>
+      <button class="category-btn" data-category="gaming">Gaming</button>
+      <button class="category-btn" data-category="podcasts">Podcasts</button>
+      <button class="category-btn" data-category="live">Live</button>
+    </nav>
+
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- SIDEBAR -->
+      <aside
+        class="sidebar"
+        id="sidebar"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <ul class="sidebar-menu">
+          <li>
+            <a href="index.html" class="sidebar-link"
+              ><i class="fa-solid fa-house"></i> <span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="trending.html" class="sidebar-link"
+              ><i class="fa-solid fa-fire"></i> <span>Trending</span></a
+            >
+          </li>
+          <li>
+            <a href="subscriptions.html" class="sidebar-link"
+              ><i class="fa-solid fa-folder-open"></i>
+              <span>Subscriptions</span></a
+            >
+          </li>
+          <li>
+            <a href="shorts.html" class="sidebar-link"
+              ><i class="fa-solid fa-bolt"></i> <span>Shorts</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="library.html"
+              class="sidebar-link active"
+              aria-current="page"
+              ><i class="fa-solid fa-photo-film"></i> <span>Library</span></a
+            >
+          </li>
+          <li>
+            <a href="history.html" class="sidebar-link"
+              ><i class="fa-solid fa-clock-rotate-left"></i>
+              <span>History</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content" id="video-container" role="main">
+        <section class="content-section">
+          <h2>🎞️ Your Library</h2>
+          <p class="section-description">
+            Your saved videos and playlists will appear here.
+          </p>
+        </section>
+
+        <article class="video-card">
+          <a href="video.html" class="video-thumbnail">
+            <iframe
+              src="https://www.youtube.com/embed/Z1XBvAq7mno"
+              title="YouTube video player"
+              allowfullscreen
+            ></iframe>
+          </a>
+          <div class="video-info">
+            <a href="video.html" class="video-title"
+              >Saved Video - EVERY Detail in Attack on Titan</a
+            >
+            <a href="#" class="channel">DJ LYTA</a>
+            <p class="meta">Saved 2 weeks ago</p>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#" rel="noopener noreferrer" title="About"
+          ><i class="fa-regular fa-circle-question"></i> <span>About</span></a
+        >
+        <a href="#" rel="noopener noreferrer" title="Contact"
+          ><i class="fa-regular fa-envelope"></i> <span>Contact</span></a
+        >
+        <a href="#" rel="noopener noreferrer" title="Terms of Service"
+          ><i class="fa-solid fa-file-contract"></i> <span>Terms</span></a
+        >
+        <a href="#" rel="noopener noreferrer" title="Privacy Policy"
+          ><i class="fa-solid fa-lock"></i> <span>Privacy</span></a
+        >
+      </nav>
+    </footer>
+
+    <!-- LOADING INDICATOR -->
+    <div class="loading-indicator" id="loading-indicator" style="display: none">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- include shared script -->
+    <script src="./scripts/main.js"></script>
+  </body>
 </html>

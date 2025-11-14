@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch Video</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div class="video-page-container">
-    <a href="index.html" class="back-btn">← Back</a>
-    <div id="video-player"></div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch Video</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="video-page-container">
+      <a href="index.html" class="back-btn">← Back</a>
+      <div id="video-player"></div>
+    </div>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const videoId = urlParams.get('video');
-    if (videoId) {
-      const playerDiv = document.getElementById("video-player");
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      iframe.width = "100%";
-      iframe.height = "600px";
-      iframe.frameBorder = "0";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      playerDiv.appendChild(iframe);
-    }
-  </script>
-</body>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const videoId = urlParams.get("video");
+      if (videoId) {
+        const playerDiv = document.getElementById("video-player");
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        iframe.width = "100%";
+        iframe.height = "600px";
+        iframe.frameBorder = "0";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        playerDiv.appendChild(iframe);
+      }
+    </script>
+  </body>
 </html>
